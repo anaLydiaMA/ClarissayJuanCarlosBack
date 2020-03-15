@@ -1,0 +1,16 @@
+applications:
+- name: wedding-be
+  command: node app.js
+  disk_quota: 1G
+  env:
+    CLOUDANT_SERVICE_NAME: Wedding-db
+  instances: 1
+  memory: 128M
+  routes:
+  - route: wedding-be.us-south.cf.appdomain.cloud
+  - route: wedding-be.mybluemix.net
+  services:
+  - Wedding-db
+  stack: cflinuxfs3
+  buildpacks:
+  - sdk-for-nodejs
